@@ -45,6 +45,14 @@
           <p>INSPIRED BY SETRIS BY 
             <a href="https://itch.io/profile/mslivo" target="_blank">MSLIVO</a></p>
             <br/>
+          <p>CONTROLS:</p>
+          <p>Move Block: 🡄 🡆</p>
+          <p>Move Down Faster: 🡇</p>
+          <p>Spin Block: 🡅</p>
+          <p>Pause: P</p>
+
+          <br/>
+          <br/>
           <p>NOT AFFILIATED WITH Tetris®</p>
             <br/>
             <button type="button" class="aboutbutton" onClick="toggleAbout()">X</button>
@@ -76,7 +84,7 @@
           <br/><br/>
           MUS
           <input style="width:80px" type="range" min="0" max="10" value="0.5" 
-          class="slider" id="mus1Slider"/>
+          class="slider" id="mus1Slider" onchange="MUSvolume(this.value)"/>
          
           <br/>
           SFX
@@ -101,7 +109,7 @@
           <br/><br/>
           MUS
           <input style="width:80px" type="range" min="0" max="10" value="1" 
-          class="slider" id="mus2Slider"/>
+          class="slider" id="mus2Slider" onchange="MUSvolume(this.value)"/>
           <br/>
           SFX
           <input style="width:80px" type="range" min="0" max="10" value="0.5" 
