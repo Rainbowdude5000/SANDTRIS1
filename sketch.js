@@ -1,820 +1,806 @@
-function HSVtoRGB(h, s, v) {
-  var r, g, b, i, f, p, q, t;
-  if (arguments.length === 1) {
-    (s = h.s), (v = h.v), (h = h.h);
+function _0x5724(_0x37ef40, _0x2a53ea) {
+  var _0x2acac6 = _0x2aca();
+  return (
+    (_0x5724 = function (_0x5724d4, _0x55ff6b) {
+      _0x5724d4 = _0x5724d4 - 0x1e0;
+      var _0x4c5247 = _0x2acac6[_0x5724d4];
+      return _0x4c5247;
+    }),
+    _0x5724(_0x37ef40, _0x2a53ea)
+  );
+}
+var _0x180e5b = _0x5724;
+(function (_0x196c7a, _0x155e9f) {
+  var _0x100fe1 = _0x5724,
+    _0x56d8b8 = _0x196c7a();
+  while (!![]) {
+    try {
+      var _0x42a115 =
+        (-parseInt(_0x100fe1(0x1fd)) / 0x1) *
+          (-parseInt(_0x100fe1(0x1e2)) / 0x2) +
+        (-parseInt(_0x100fe1(0x218)) / 0x3) *
+          (parseInt(_0x100fe1(0x219)) / 0x4) +
+        -parseInt(_0x100fe1(0x1f8)) / 0x5 +
+        parseInt(_0x100fe1(0x1e0)) / 0x6 +
+        (parseInt(_0x100fe1(0x1e9)) / 0x7) *
+          (parseInt(_0x100fe1(0x1fc)) / 0x8) +
+        parseInt(_0x100fe1(0x209)) / 0x9 +
+        parseInt(_0x100fe1(0x1e8)) / 0xa;
+      if (_0x42a115 === _0x155e9f) break;
+      else _0x56d8b8["push"](_0x56d8b8["shift"]());
+    } catch (_0x4aa8d8) {
+      _0x56d8b8["push"](_0x56d8b8["shift"]());
+    }
   }
-  i = Math.floor(h * 6);
-  f = h * 6 - i;
-  p = v * (1 - s);
-  q = v * (1 - f * s);
-  t = v * (1 - (1 - f) * s);
-  switch (i % 6) {
-    case 0:
-      (r = v), (g = t), (b = p);
+})(_0x2aca, 0xaac4c);
+function HSVtoRGB(_0x4ff404, _0x3e89bf, _0x4f4745) {
+  var _0x51d0b3 = _0x5724,
+    _0x2d8d15,
+    _0x3e4190,
+    _0x3e5ade,
+    _0x263206,
+    _0x38f1c1,
+    _0x5c7a21,
+    _0x274e76,
+    _0x3c6e79;
+  arguments[_0x51d0b3(0x20a)] === 0x1 &&
+    ((_0x3e89bf = _0x4ff404["s"]),
+    (_0x4f4745 = _0x4ff404["v"]),
+    (_0x4ff404 = _0x4ff404["h"]));
+  (_0x263206 = Math[_0x51d0b3(0x1ff)](_0x4ff404 * 0x6)),
+    (_0x38f1c1 = _0x4ff404 * 0x6 - _0x263206),
+    (_0x5c7a21 = _0x4f4745 * (0x1 - _0x3e89bf)),
+    (_0x274e76 = _0x4f4745 * (0x1 - _0x38f1c1 * _0x3e89bf)),
+    (_0x3c6e79 = _0x4f4745 * (0x1 - (0x1 - _0x38f1c1) * _0x3e89bf));
+  switch (_0x263206 % 0x6) {
+    case 0x0:
+      (_0x2d8d15 = _0x4f4745), (_0x3e4190 = _0x3c6e79), (_0x3e5ade = _0x5c7a21);
       break;
-    case 1:
-      (r = q), (g = v), (b = p);
+    case 0x1:
+      (_0x2d8d15 = _0x274e76), (_0x3e4190 = _0x4f4745), (_0x3e5ade = _0x5c7a21);
       break;
-    case 2:
-      (r = p), (g = v), (b = t);
+    case 0x2:
+      (_0x2d8d15 = _0x5c7a21), (_0x3e4190 = _0x4f4745), (_0x3e5ade = _0x3c6e79);
       break;
-    case 3:
-      (r = p), (g = q), (b = v);
+    case 0x3:
+      (_0x2d8d15 = _0x5c7a21), (_0x3e4190 = _0x274e76), (_0x3e5ade = _0x4f4745);
       break;
-    case 4:
-      (r = t), (g = p), (b = v);
+    case 0x4:
+      (_0x2d8d15 = _0x3c6e79), (_0x3e4190 = _0x5c7a21), (_0x3e5ade = _0x4f4745);
       break;
-    case 5:
-      (r = v), (g = p), (b = q);
+    case 0x5:
+      (_0x2d8d15 = _0x4f4745), (_0x3e4190 = _0x5c7a21), (_0x3e5ade = _0x274e76);
       break;
   }
   return {
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255),
+    r: Math[_0x51d0b3(0x21a)](_0x2d8d15 * 0xff),
+    g: Math[_0x51d0b3(0x21a)](_0x3e4190 * 0xff),
+    b: Math[_0x51d0b3(0x21a)](_0x3e5ade * 0xff),
   };
 }
-
-var grid = [];
-var scl = 4;
-var padding = 4;
-var columns = 80;
-var rows = 160;
-var buff;
-var t = 0;
-var playerBlock;
-var nextBlock;
-var vis;
-var fullLine;
-var cleartime = 0;
-var placed = false;
-var staticCount = 0;
-
-var linesCleared = 0;
-var score = 0;
-
-var gameOffset = 4 * scl;
-
-var nextOffset;
-
-var gameRes;
-
-var placeSound;
-var lineSound;
-var gameMusic;
-
-var pixelFont;
-
-var gameOver = true;
-var paused = true;
-
-var startScreen;
-var pauseScreen;
-var aboutScreen;
-var gameoverScreen;
-var gameoverText;
-
-var timeText = "00:00";
-
-var levelSlider;
-var levelText;
-var difficulty = 1;
-
-var sfxSlider1;
-var sfxSlider2;
-
-var musSlider1;
-var musSlider2;
-
-//difficulty vars
-var speed = 0.5;
-var staticChance = 8;
-var dupChance = 0.5;
-
-var brick = [
-  [0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 1, 0],
-  [0, 1, 0, 0, 0, 0, 1, 0],
-  [0, 1, 0, 2, 2, 0, 1, 0],
-  [0, 1, 0, 2, 2, 0, 1, 0],
-  [0, 1, 0, 0, 0, 0, 1, 0],
-  [0, 1, 1, 1, 1, 1, 1, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0],
-];
-
-var staticbrick = [
-  [2, 0, 0, 0, 0, 0, 0, 2],
-  [0, 1, 2, 1, 1, 2, 1, 0],
-  [0, 2, 1, 1, 1, 1, 2, 0],
-  [0, 1, 1, 0, 0, 1, 1, 0],
-  [0, 1, 1, 0, 0, 1, 1, 0],
-  [0, 2, 1, 1, 1, 1, 2, 0],
-  [0, 1, 2, 1, 1, 2, 1, 0],
-  [0, 0, 0, 0, 0, 0, 0, 2],
-];
-
-var cols = [
-  [255, 0, 0],
-  [0, 255, 0],
-  [0, 0, 255],
-  [255, 255, 0],
-  [255, 255, 255],
-];
-
-var blockType = [
-  [
-    [0, 0, 0, 1, 1, 0, 1, 1], // O rotations
-    [0, 0, 0, 1, 1, 0, 1, 1],
-    [0, 0, 0, 1, 1, 0, 1, 1],
-    [0, 0, 0, 1, 1, 0, 1, 1],
+var grid = [],
+  scl = 0x4,
+  padding = 0x4,
+  columns = 0x50,
+  rows = 0xa0,
+  buff,
+  t = 0x0,
+  playerBlock,
+  nextBlock,
+  vis,
+  fullLine,
+  cleartime = 0x0,
+  placed = ![],
+  staticCount = 0x0,
+  linesCleared = 0x0,
+  score = 0x0,
+  gameOffset = 0x4 * scl,
+  nextOffset,
+  gameRes,
+  placeSound,
+  lineSound,
+  gameMusic,
+  pixelFont,
+  gameOver = !![],
+  paused = !![],
+  startScreen,
+  pauseScreen,
+  aboutScreen,
+  gameoverScreen,
+  gameoverText,
+  timeText = _0x180e5b(0x200),
+  levelSlider,
+  levelText,
+  difficulty = 0x1,
+  sfxSlider1,
+  sfxSlider2,
+  musSlider1,
+  musSlider2,
+  speed = 0.5,
+  staticChance = 0x8,
+  dupChance = 0.5,
+  brick = [
+    [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0],
+    [0x0, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x0],
+    [0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0],
+    [0x0, 0x1, 0x0, 0x2, 0x2, 0x0, 0x1, 0x0],
+    [0x0, 0x1, 0x0, 0x2, 0x2, 0x0, 0x1, 0x0],
+    [0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0],
+    [0x0, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x0],
+    [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0],
   ],
-
-  [
-    [0, 0, 0, 1, 1, 0, 0, 2], // L rotations
-    [0, 0, 1, 0, 2, 0, 2, 1],
-    [0, 2, 1, 2, 1, 1, 1, 0],
-    [0, 0, 0, 1, 1, 1, 2, 1],
+  staticbrick = [
+    [0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2],
+    [0x0, 0x1, 0x2, 0x1, 0x1, 0x2, 0x1, 0x0],
+    [0x0, 0x2, 0x1, 0x1, 0x1, 0x1, 0x2, 0x0],
+    [0x0, 0x1, 0x1, 0x0, 0x0, 0x1, 0x1, 0x0],
+    [0x0, 0x1, 0x1, 0x0, 0x0, 0x1, 0x1, 0x0],
+    [0x0, 0x2, 0x1, 0x1, 0x1, 0x1, 0x2, 0x0],
+    [0x0, 0x1, 0x2, 0x1, 0x1, 0x2, 0x1, 0x0],
+    [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2],
   ],
-
-  [
-    [0, 0, 1, 0, 1, 1, 1, 2], // J rotations
-    [0, 1, 1, 1, 2, 1, 2, 0],
-    [0, 0, 0, 1, 0, 2, 1, 2],
-    [0, 0, 0, 1, 1, 0, 2, 0],
+  cols = [
+    [0xff, 0x0, 0x0],
+    [0x0, 0xff, 0x0],
+    [0x0, 0x0, 0xff],
+    [0xff, 0xff, 0x0],
+    [0xff, 0xff, 0xff],
   ],
-
-  [
-    [0, 0, 1, 0, 1, 1, 2, 1], // S rotations
-    [0, 1, 0, 2, 1, 1, 1, 0],
-    [0, 0, 1, 0, 1, 1, 2, 1],
-    [0, 1, 0, 2, 1, 1, 1, 0],
+  blockType = [
+    [
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x0, 0x1, 0x1],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x0, 0x1, 0x1],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x0, 0x1, 0x1],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x0, 0x1, 0x1],
+    ],
+    [
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x0, 0x0, 0x2],
+      [0x0, 0x0, 0x1, 0x0, 0x2, 0x0, 0x2, 0x1],
+      [0x0, 0x2, 0x1, 0x2, 0x1, 0x1, 0x1, 0x0],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x1, 0x2, 0x1],
+    ],
+    [
+      [0x0, 0x0, 0x1, 0x0, 0x1, 0x1, 0x1, 0x2],
+      [0x0, 0x1, 0x1, 0x1, 0x2, 0x1, 0x2, 0x0],
+      [0x0, 0x0, 0x0, 0x1, 0x0, 0x2, 0x1, 0x2],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x0, 0x2, 0x0],
+    ],
+    [
+      [0x0, 0x0, 0x1, 0x0, 0x1, 0x1, 0x2, 0x1],
+      [0x0, 0x1, 0x0, 0x2, 0x1, 0x1, 0x1, 0x0],
+      [0x0, 0x0, 0x1, 0x0, 0x1, 0x1, 0x2, 0x1],
+      [0x0, 0x1, 0x0, 0x2, 0x1, 0x1, 0x1, 0x0],
+    ],
+    [
+      [0x0, 0x1, 0x1, 0x1, 0x1, 0x0, 0x2, 0x0],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x1, 0x1, 0x2],
+      [0x0, 0x1, 0x1, 0x1, 0x1, 0x0, 0x2, 0x0],
+      [0x0, 0x0, 0x0, 0x1, 0x1, 0x1, 0x1, 0x2],
+    ],
+    [
+      [0x0, 0x0, 0x1, 0x0, 0x2, 0x0, 0x1, 0x1],
+      [0x0, 0x1, 0x1, 0x0, 0x1, 0x1, 0x1, 0x2],
+      [0x1, 0x0, 0x0, 0x1, 0x1, 0x1, 0x2, 0x1],
+      [0x0, 0x0, 0x0, 0x1, 0x0, 0x2, 0x1, 0x1],
+    ],
+    [
+      [0x0, 0x0, 0x1, 0x0, 0x2, 0x0, 0x3, 0x0],
+      [0x0, 0x0, 0x0, 0x1, 0x0, 0x2, 0x0, 0x3],
+      [0x0, 0x0, 0x1, 0x0, 0x2, 0x0, 0x3, 0x0],
+      [0x0, 0x0, 0x0, 0x1, 0x0, 0x2, 0x0, 0x3],
+    ],
   ],
-
-  [
-    [0, 1, 1, 1, 1, 0, 2, 0], // Z rotations
-    [0, 0, 0, 1, 1, 1, 1, 2],
-    [0, 1, 1, 1, 1, 0, 2, 0],
-    [0, 0, 0, 1, 1, 1, 1, 2],
+  blockWidth = [
+    [0x1, 0x1, 0x1, 0x1],
+    [0x1, 0x2, 0x1, 0x2],
+    [0x1, 0x2, 0x1, 0x2],
+    [0x2, 0x1, 0x2, 0x1],
+    [0x2, 0x1, 0x2, 0x1],
+    [0x2, 0x1, 0x2, 0x1],
+    [0x3, 0x0, 0x3, 0x0],
   ],
-
-  [
-    [0, 0, 1, 0, 2, 0, 1, 1], // T rotations
-    [0, 1, 1, 0, 1, 1, 1, 2],
-    [1, 0, 0, 1, 1, 1, 2, 1],
-    [0, 0, 0, 1, 0, 2, 1, 1],
-  ],
-
-  [
-    [0, 0, 1, 0, 2, 0, 3, 0], // I rotations
-    [0, 0, 0, 1, 0, 2, 0, 3],
-    [0, 0, 1, 0, 2, 0, 3, 0],
-    [0, 0, 0, 1, 0, 2, 0, 3],
-  ],
-];
-
-var blockWidth = [
-  [1, 1, 1, 1],
-  [1, 2, 1, 2],
-  [1, 2, 1, 2],
-  [2, 1, 2, 1],
-  [2, 1, 2, 1],
-  [2, 1, 2, 1],
-  [3, 0, 3, 0],
-];
-
-var blockHeight = [
-  [1, 1, 1, 1],
-  [2, 1, 2, 1],
-  [2, 1, 2, 1],
-  [1, 2, 1, 2],
-  [1, 2, 1, 2],
-  [1, 2, 1, 2],
-  [0, 3, 0, 3],
-];
-
+  blockHeight = [
+    [0x1, 0x1, 0x1, 0x1],
+    [0x2, 0x1, 0x2, 0x1],
+    [0x2, 0x1, 0x2, 0x1],
+    [0x1, 0x2, 0x1, 0x2],
+    [0x1, 0x2, 0x1, 0x2],
+    [0x1, 0x2, 0x1, 0x2],
+    [0x0, 0x3, 0x0, 0x3],
+  ];
 function preload() {
-  soundFormats("mp3", "ogg");
-  placeSound = loadSound("sounds/place");
-  lineSound = loadSound("sounds/line");
-  gameMusic = loadSound("sounds/music");
-  pixelFont = loadFont("fonts/retroFont.ttf");
+  var _0x4cdde4 = _0x180e5b;
+  soundFormats(_0x4cdde4(0x207), _0x4cdde4(0x222)),
+    (placeSound = loadSound(_0x4cdde4(0x1e7))),
+    (lineSound = loadSound(_0x4cdde4(0x1ea))),
+    (gameMusic = loadSound("sounds/music")),
+    (pixelFont = loadFont(_0x4cdde4(0x223)));
 }
-
-//block object
-function Block(x, y) {
-  this.pos = createVector(0, 0);
-  this.grav = speed;
-  this.sprite = null;
-  this.grid = [];
-  this.type = 0;
-  this.col = 0;
-  this.static = false;
-  this.rot = 0;
-  this.rotReset = true;
-
-  this.clearGrid = function () {
-    this.grid = [];
-    for (let i = 0; i < 32; i++) {
-      this.grid.push(new Array(32).fill(null));
-    }
-  };
-
-  this.renderBlock = function () {
-    this.clearGrid();
-    AddBlock(
-      this.grid,
-      0,
-      31,
-      blockType[this.type][this.rot],
-      this.col,
-      this.static
-    );
-    renderFromArray(this.grid, this.sprite);
-  };
-
-  this.newBlock = function () {
-    this.static = false;
-
-    this.sprite = createImage(32, 32);
-    this.type = int(random(blockType.length));
-    this.col = int(random(4));
-    this.pos = createVector(
-      int(columns / 2 - (blockWidth[this.type][0] + 1)),
-      0
-    );
-
-    staticCount += 1;
-    if (staticCount == staticChance) {
-      this.static = true;
-      staticCount = 0;
-    }
-
-    this.renderBlock();
-  };
-
-  this.show = function () {
-    image(
-      this.sprite,
-      this.pos.x * scl + gameOffset,
-      (this.pos.y - 32) * scl,
-      32 * scl,
-      32 * scl
-    );
-  };
-
-  this.update = function () {
-    let gridx = Math.floor(this.pos.x);
-    let gridy = Math.floor(this.pos.y);
-
-    //check if block hit the ground
-    if (gridy + 1 >= rows) {
-      placed = true;
-    } else {
-      //check if sand under any block
-      for (let i = 0; i < 4; i++) {
-        let index = i * 2;
-        let offx = blockType[this.type][this.rot][index];
-        let offy = blockType[this.type][this.rot][index + 1];
-        let brickx = int(gridx + offx * 8);
-        let bricky = int(gridy - offy * 8);
-        if (bricky <= 0) {
-          continue;
-        }
-
-        for (let j = 0; j < 8; j++) {
-          if (grid[bricky + 1][brickx + j] != null) {
-            if (grid[bricky][brickx + j]) {
-              this.pos.y -= 1;
-            }
-            placed = true;
+function Block(_0xc1d6e6, _0x263c0c) {
+  var _0x3d2206 = _0x180e5b;
+  (this[_0x3d2206(0x20f)] = createVector(0x0, 0x0)),
+    (this[_0x3d2206(0x20e)] = speed),
+    (this[_0x3d2206(0x213)] = null),
+    (this[_0x3d2206(0x217)] = []),
+    (this[_0x3d2206(0x1fe)] = 0x0),
+    (this["col"] = 0x0),
+    (this[_0x3d2206(0x210)] = ![]),
+    (this[_0x3d2206(0x1fb)] = 0x0),
+    (this[_0x3d2206(0x1f0)] = !![]),
+    (this[_0x3d2206(0x1ed)] = function () {
+      var _0x34571f = _0x3d2206;
+      this[_0x34571f(0x217)] = [];
+      for (let _0x57d73c = 0x0; _0x57d73c < 0x20; _0x57d73c++) {
+        this["grid"][_0x34571f(0x1f5)](new Array(0x20)[_0x34571f(0x1f3)](null));
+      }
+    }),
+    (this[_0x3d2206(0x1e3)] = function () {
+      var _0x5f5d59 = _0x3d2206;
+      this[_0x5f5d59(0x1ed)](),
+        AddBlock(
+          this[_0x5f5d59(0x217)],
+          0x0,
+          0x1f,
+          blockType[this[_0x5f5d59(0x1fe)]][this[_0x5f5d59(0x1fb)]],
+          this[_0x5f5d59(0x20b)],
+          this["static"]
+        ),
+        renderFromArray(this[_0x5f5d59(0x217)], this[_0x5f5d59(0x213)]);
+    }),
+    (this[_0x3d2206(0x212)] = function () {
+      var _0x48c73f = _0x3d2206;
+      (this[_0x48c73f(0x210)] = ![]),
+        (this[_0x48c73f(0x213)] = createImage(0x20, 0x20)),
+        (this[_0x48c73f(0x1fe)] = int(random(blockType[_0x48c73f(0x20a)]))),
+        (this[_0x48c73f(0x20b)] = int(random(0x4))),
+        (this[_0x48c73f(0x20f)] = createVector(
+          int(columns / 0x2 - (blockWidth[this[_0x48c73f(0x1fe)]][0x0] + 0x1)),
+          0x0
+        )),
+        (staticCount += 0x1),
+        staticCount == staticChance &&
+          ((this[_0x48c73f(0x210)] = !![]), (staticCount = 0x0)),
+        this[_0x48c73f(0x1e3)]();
+    }),
+    (this[_0x3d2206(0x204)] = function () {
+      var _0x30ee27 = _0x3d2206;
+      image(
+        this[_0x30ee27(0x213)],
+        this[_0x30ee27(0x20f)]["x"] * scl + gameOffset,
+        (this[_0x30ee27(0x20f)]["y"] - 0x20) * scl,
+        0x20 * scl,
+        0x20 * scl
+      );
+    }),
+    (this[_0x3d2206(0x1f6)] = function () {
+      var _0x21381c = _0x3d2206;
+      let _0x1f63dd = Math["floor"](this[_0x21381c(0x20f)]["x"]),
+        _0x46b4ad = Math[_0x21381c(0x1ff)](this[_0x21381c(0x20f)]["y"]);
+      if (_0x46b4ad + 0x1 >= rows) placed = !![];
+      else
+        for (let _0xd4b03c = 0x0; _0xd4b03c < 0x4; _0xd4b03c++) {
+          let _0x259679 = _0xd4b03c * 0x2,
+            _0x5f4346 =
+              blockType[this[_0x21381c(0x1fe)]][this["rot"]][_0x259679],
+            _0x47c299 =
+              blockType[this[_0x21381c(0x1fe)]][this[_0x21381c(0x1fb)]][
+                _0x259679 + 0x1
+              ],
+            _0x3f3f9a = int(_0x1f63dd + _0x5f4346 * 0x8),
+            _0x1f41f0 = int(_0x46b4ad - _0x47c299 * 0x8);
+          if (_0x1f41f0 <= 0x0) continue;
+          for (let _0x299e73 = 0x0; _0x299e73 < 0x8; _0x299e73++) {
+            grid[_0x1f41f0 + 0x1][_0x3f3f9a + _0x299e73] != null &&
+              (grid[_0x1f41f0][_0x3f3f9a + _0x299e73] &&
+                (this[_0x21381c(0x20f)]["y"] -= 0x1),
+              (placed = !![]));
           }
         }
+      if (placed) {
+        this[_0x21381c(0x20f)]["y"] -
+          0x8 *
+            (blockHeight[this[_0x21381c(0x1fe)]][this[_0x21381c(0x1fb)]] +
+              0x1) <
+          0x0 &&
+          ((gameOver = !![]),
+          gameOverScore(),
+          (gameoverScreen[_0x21381c(0x203)] = !![]));
+        AddBlock(
+          grid,
+          _0x1f63dd,
+          min(_0x46b4ad, rows - 0x1),
+          blockType[this[_0x21381c(0x1fe)]][this[_0x21381c(0x1fb)]],
+          this[_0x21381c(0x20b)],
+          this[_0x21381c(0x210)]
+        ),
+          placeSound["play"]();
+        return;
       }
-    }
-
-    if (placed) {
-      if (this.pos.y - 8 * (blockHeight[this.type][this.rot] + 1) < 0) {
-        gameOver = true;
-        gameOverScore();
-        gameoverScreen.open = true;
+      this[_0x21381c(0x20f)]["y"] += this[_0x21381c(0x20e)];
+    }),
+    (this["rotate"] = function () {
+      var _0xd01b29 = _0x3d2206;
+      (this[_0xd01b29(0x1fb)] = (this[_0xd01b29(0x1fb)] + 0x1) % 0x4),
+        this[_0xd01b29(0x1ed)](),
+        (this[_0xd01b29(0x213)] = createImage(0x20, 0x20)),
+        AddBlock(
+          this[_0xd01b29(0x217)],
+          0x0,
+          0x1f,
+          blockType[this[_0xd01b29(0x1fe)]][this[_0xd01b29(0x1fb)]],
+          this[_0xd01b29(0x20b)],
+          this[_0xd01b29(0x210)]
+        ),
+        renderFromArray(this[_0xd01b29(0x217)], this[_0xd01b29(0x213)]);
+      let _0x302bd1 =
+        blockWidth[this[_0xd01b29(0x1fe)]][this[_0xd01b29(0x1fb)]] + 0x1;
+      this[_0xd01b29(0x20f)]["x"] > columns - _0x302bd1 * 0x8 &&
+        (this[_0xd01b29(0x20f)]["x"] = columns - _0x302bd1 * 0x8);
+    }),
+    (this["controls"] = function () {
+      var _0x38d0ec = _0x3d2206;
+      keyIsDown(UP_ARROW)
+        ? this[_0x38d0ec(0x1f0)] &&
+          (this[_0x38d0ec(0x1ef)](), (this[_0x38d0ec(0x1f0)] = ![]))
+        : (this["rotReset"] = !![]);
+      keyIsDown(LEFT_ARROW) &&
+        ((this[_0x38d0ec(0x20f)]["x"] -= 0x1),
+        this[_0x38d0ec(0x20f)]["x"] < 0x0 && (this["pos"]["x"] = 0x0));
+      if (keyIsDown(RIGHT_ARROW)) {
+        this[_0x38d0ec(0x20f)]["x"] += 0x1;
+        let _0xfc60e8 = blockWidth[this[_0x38d0ec(0x1fe)]][this["rot"]] + 0x1;
+        this["pos"]["x"] > columns - _0xfc60e8 * 0x8 &&
+          (this["pos"]["x"] = columns - _0xfc60e8 * 0x8);
       }
-      AddBlock(
-        grid,
-        gridx,
-        min(gridy, rows - 1),
-        blockType[this.type][this.rot],
-        this.col,
-        this.static
-      );
-      placeSound.play();
-      return;
-    }
-
-    this.pos.y += this.grav;
-  };
-
-  this.rotate = function () {
-    this.rot = (this.rot + 1) % 4;
-    this.clearGrid();
-    this.sprite = createImage(32, 32);
-    AddBlock(
-      this.grid,
-      0,
-      31,
-      blockType[this.type][this.rot],
-      this.col,
-      this.static
-    );
-    renderFromArray(this.grid, this.sprite);
-    let limit = blockWidth[this.type][this.rot] + 1;
-    if (this.pos.x > columns - limit * 8) {
-      this.pos.x = columns - limit * 8;
-    }
-  };
-
-  this.controls = function () {
-    if (keyIsDown(UP_ARROW)) {
-      if (this.rotReset) {
-        this.rotate();
-        this.rotReset = false;
-      }
-    } else {
-      this.rotReset = true;
-    }
-
-    if (keyIsDown(LEFT_ARROW)) {
-      this.pos.x -= 1;
-      if (this.pos.x < 0) {
-        this.pos.x = 0;
-      }
-    }
-
-    if (keyIsDown(RIGHT_ARROW)) {
-      this.pos.x += 1;
-      let limit = blockWidth[this.type][this.rot] + 1;
-      if (this.pos.x > columns - limit * 8) {
-        this.pos.x = columns - limit * 8;
-      }
-    }
-
-    if (keyIsDown(DOWN_ARROW)) {
-      this.pos.y += 1;
-      score += 1;
-    }
-  };
+      keyIsDown(DOWN_ARROW) &&
+        ((this[_0x38d0ec(0x20f)]["y"] += 0x1), (score += 0x1));
+    });
 }
-
 function resetGame() {
-  //board has 10x20 blocks
-  //and 80x160 grains
-  score = 0;
-  linesCleared = 0;
-  staticCount = 0;
-  t = 0;
-
-  buff = createImage(columns, rows);
-  grid = [];
-  for (let y = 0; y < rows; y++) {
-    grid[y] = [];
-    for (let x = 0; x < columns; x++) {
-      grid[y].push(null);
+  var _0x131fad = _0x180e5b;
+  (score = 0x0),
+    (linesCleared = 0x0),
+    (staticCount = 0x0),
+    (t = 0x0),
+    (buff = createImage(columns, rows)),
+    (grid = []);
+  for (let _0x2413ab = 0x0; _0x2413ab < rows; _0x2413ab++) {
+    grid[_0x2413ab] = [];
+    for (let _0x3f4bfd = 0x0; _0x3f4bfd < columns; _0x3f4bfd++) {
+      grid[_0x2413ab][_0x131fad(0x1f5)](null);
     }
   }
-
-  playerBlock = new Block(width / 2 - gameOffset, 0);
-  playerBlock.newBlock();
-
-  nextBlock = new Block(width / 2 - gameOffset, 0);
-  nextBlock.newBlock();
+  (playerBlock = new Block(width / 0x2 - gameOffset, 0x0)),
+    playerBlock[_0x131fad(0x212)](),
+    (nextBlock = new Block(width / 0x2 - gameOffset, 0x0)),
+    nextBlock[_0x131fad(0x212)]();
 }
-
 function startGame() {
-  resetGame();
-  paused = false;
-  gameOver = false;
-  startScreen.open = false;
+  var _0x59c5b4 = _0x180e5b;
+  resetGame(),
+    (paused = ![]),
+    (gameOver = ![]),
+    (startScreen[_0x59c5b4(0x203)] = ![]);
 }
-
 function unpauseGame() {
-  paused = false;
-  pauseScreen.open = false;
+  var _0x4b19ae = _0x180e5b;
+  (paused = ![]), (pauseScreen[_0x4b19ae(0x203)] = ![]);
 }
-
 function newGame() {
-  pauseScreen.open = false;
-  gameoverScreen.open = false;
-  startScreen.open = true;
+  var _0x2f34a1 = _0x180e5b;
+  (pauseScreen[_0x2f34a1(0x203)] = ![]),
+    (gameoverScreen[_0x2f34a1(0x203)] = ![]),
+    (startScreen[_0x2f34a1(0x203)] = !![]);
 }
-
-function SFXvolume(val) {
-  let soundlevel = val / 10;
-  placeSound.setVolume(soundlevel / 2);
-  lineSound.setVolume(soundlevel / 2);
-  sfxSlider1.value = val;
-  sfxSlider2.value = val;
+function SFXvolume(_0x39fe54) {
+  var _0x5b401d = _0x180e5b;
+  let _0xc5a8a3 = _0x39fe54 / 0xa;
+  placeSound[_0x5b401d(0x205)](_0xc5a8a3 / 0x2),
+    lineSound[_0x5b401d(0x205)](_0xc5a8a3 / 0x2),
+    (sfxSlider1[_0x5b401d(0x211)] = _0x39fe54),
+    (sfxSlider2[_0x5b401d(0x211)] = _0x39fe54);
 }
-
-function MUSvolume(val) {
-  let soundlevel = val / 10;
-  gameMusic.setVolume(soundlevel / 2);
-  musSlider1.value = val;
-  musSlider2.value = val;
+function MUSvolume(_0x4e4249) {
+  var _0x64e82e = _0x180e5b;
+  let _0x4f9ed5 = _0x4e4249 / 0xa;
+  gameMusic["setVolume"](_0x4f9ed5 / 0x2),
+    (musSlider1[_0x64e82e(0x211)] = _0x4e4249),
+    (musSlider2[_0x64e82e(0x211)] = _0x4e4249);
 }
-
 function toggleAbout() {
-  aboutScreen.open = !aboutScreen.open;
-  startScreen.open = !startScreen.open;
+  var _0x298402 = _0x180e5b;
+  (aboutScreen[_0x298402(0x203)] = !aboutScreen[_0x298402(0x203)]),
+    (startScreen["open"] = !startScreen["open"]);
 }
-
 function adjustDifficulty() {
-  difficulty = levelSlider.value;
-
-  speed = 0.5 + map(difficulty, 1, 10, 0, 3) / 2;
-  staticChance = Math.floor(map(difficulty, 1, 10, 16, 4));
-  dupChance = map(difficulty, 0, 1, 1, 0.1);
+  var _0x2e781f = _0x180e5b;
+  (difficulty = levelSlider[_0x2e781f(0x211)]),
+    (speed = 0.5 + map(difficulty, 0x1, 0xa, 0x0, 0x3) / 0x2),
+    (staticChance = Math[_0x2e781f(0x1ff)](
+      map(difficulty, 0x1, 0xa, 0x10, 0x4)
+    )),
+    (dupChance = map(difficulty, 0x0, 0x1, 0x1, 0.1));
 }
-
 function gameOverScore() {
-  gameoverText.innerHTML = "";
-  gameoverText.innerHTML += "SCORE:<br/>" + score;
-  gameoverText.innerHTML += "<br/>LINES:<br/>" + linesCleared;
+  var _0x274d76 = _0x180e5b;
+  (gameoverText[_0x274d76(0x214)] = ""),
+    (gameoverText[_0x274d76(0x214)] += _0x274d76(0x220) + score),
+    (gameoverText[_0x274d76(0x214)] += "<br/>LINES:<br/>" + linesCleared);
 }
-
 function shareText() {
-  let scoreInfoText = `█▀ ▄▀█ █▄░█ █▀▄ ▀█▀ █▀█ █ █▀
-▄█ █▀█ █░▀█ █▄▀ ░█░ █▀▄ █ ▄█
-  `;
-  let levelText = difficulty.toString();
-  let linesText = linesCleared.toString();
-  let scoreText = score.toString();
-  scoreInfoText +=
-    "LEVEL: " + levelText + " ".repeat(6 - levelText.length) + "| ";
-  scoreInfoText +=
-    "LINES: " + linesText + " ".repeat(6 - linesText.length) + "\n";
-  scoreInfoText +=
-    "SCORE: " + scoreText + " ".repeat(9 - scoreText.length) + "| ";
-  scoreInfoText += "TIME: " + timeText + " ".repeat(7 - timeText.length) + "\n";
-
-  scoreInfoText += "Play now at https://sandtris.com/";
-  scoreInfoText += navigator.clipboard.writeText(scoreInfoText);
-  alert("Share Text Copied to Clipboard!");
+  var _0x5e0e2c = _0x180e5b;
+  let _0x5293dd = _0x5e0e2c(0x1eb),
+    _0x255f9d = difficulty[_0x5e0e2c(0x1f1)](),
+    _0x106c96 = linesCleared["toString"](),
+    _0x435526 = score["toString"]();
+  (_0x5293dd +=
+    "LEVEL:\x20" +
+    _0x255f9d +
+    "\x20"["repeat"](0x6 - _0x255f9d[_0x5e0e2c(0x20a)]) +
+    "|\x20"),
+    (_0x5293dd +=
+      "LINES:\x20" +
+      _0x106c96 +
+      "\x20"[_0x5e0e2c(0x216)](0x6 - _0x106c96[_0x5e0e2c(0x20a)]) +
+      "\x0a"),
+    (_0x5293dd +=
+      "SCORE:\x20" +
+      _0x435526 +
+      "\x20"["repeat"](0x9 - _0x435526[_0x5e0e2c(0x20a)]) +
+      "|\x20"),
+    (_0x5293dd +=
+      _0x5e0e2c(0x1e4) +
+      timeText +
+      "\x20"["repeat"](0x7 - timeText[_0x5e0e2c(0x20a)]) +
+      "\x0a"),
+    (_0x5293dd += _0x5e0e2c(0x1f7)),
+    (_0x5293dd += navigator[_0x5e0e2c(0x221)]["writeText"](_0x5293dd)),
+    alert(_0x5e0e2c(0x21b));
 }
-
 function setup() {
-  //dom elements
-  startScreen = document.getElementById("startpage");
-  pauseScreen = document.getElementById("pausepage");
-  gameoverScreen = document.getElementById("gameoverpage");
-  aboutScreen = document.getElementById("aboutpage");
-
-  levelSlider = document.getElementById("lvlSlider");
-  levelSlider.value = 1;
-  levelText = document.getElementById("levelText");
-
-  sfxSlider1 = document.getElementById("sfx1Slider");
-  sfxSlider2 = document.getElementById("sfx2Slider");
-  sfxSlider1.value = 10;
-  sfxSlider2.value = 10;
-
-  musSlider1 = document.getElementById("mus1Slider");
-  musSlider2 = document.getElementById("mus2Slider");
-  musSlider1.value = 10;
-  musSlider2.value = 10;
-
-  gameoverText = document.getElementById("gameoverText");
-
-  gameRes = createVector(columns * scl, rows * scl);
-  nextOffset = gameRes.x + gameOffset * 4;
-  cnv = createCanvas(gameRes.x + gameOffset * 17, gameRes.y);
-
-  cnv.parent("cnv");
-  textFont(pixelFont);
-  frameRate(60);
-  noSmooth();
-
-  gameMusic.play();
-  gameMusic.setVolume(0.5);
-  gameMusic.loop();
-
-  resetGame();
+  var _0x4f3495 = _0x180e5b;
+  (startScreen = document[_0x4f3495(0x208)](_0x4f3495(0x21c))),
+    (pauseScreen = document[_0x4f3495(0x208)]("pausepage")),
+    (gameoverScreen = document["getElementById"](_0x4f3495(0x1e1))),
+    (aboutScreen = document[_0x4f3495(0x208)](_0x4f3495(0x1e6))),
+    (levelSlider = document[_0x4f3495(0x208)](_0x4f3495(0x20d))),
+    (levelSlider["value"] = 0x1),
+    (levelText = document["getElementById"](_0x4f3495(0x1f4))),
+    (sfxSlider1 = document[_0x4f3495(0x208)](_0x4f3495(0x21e))),
+    (sfxSlider2 = document[_0x4f3495(0x208)](_0x4f3495(0x202))),
+    (sfxSlider1[_0x4f3495(0x211)] = 0xa),
+    (sfxSlider2[_0x4f3495(0x211)] = 0xa),
+    (musSlider1 = document["getElementById"](_0x4f3495(0x201))),
+    (musSlider2 = document[_0x4f3495(0x208)](_0x4f3495(0x21f))),
+    (musSlider1[_0x4f3495(0x211)] = 0xa),
+    (musSlider2["value"] = 0xa),
+    (gameoverText = document[_0x4f3495(0x208)](_0x4f3495(0x1f9))),
+    (gameRes = createVector(columns * scl, rows * scl)),
+    (nextOffset = gameRes["x"] + gameOffset * 0x4),
+    (cnv = createCanvas(gameRes["x"] + gameOffset * 0x11, gameRes["y"])),
+    cnv[_0x4f3495(0x1fa)]("cnv"),
+    textFont(pixelFont),
+    frameRate(0x3c),
+    noSmooth(),
+    gameMusic["play"](),
+    gameMusic["setVolume"](0.5),
+    gameMusic[_0x4f3495(0x1f2)](),
+    resetGame();
 }
-
-//adds 4 bricks to array in block form
-function AddBlock(target, x, y, type, c, static) {
-  for (let i = 0; i < 4; i++) {
+function AddBlock(
+  _0x410279,
+  _0x37de43,
+  _0x41ab8e,
+  _0x10f22a,
+  _0x17e6db,
+  _0x231eff
+) {
+  for (let _0x3515be = 0x0; _0x3515be < 0x4; _0x3515be++) {
     AddSingleBrick(
-      target,
-      x + type[i * 2] * 8,
-      y - type[i * 2 + 1] * 8,
-      c,
-      static
+      _0x410279,
+      _0x37de43 + _0x10f22a[_0x3515be * 0x2] * 0x8,
+      _0x41ab8e - _0x10f22a[_0x3515be * 0x2 + 0x1] * 0x8,
+      _0x17e6db,
+      _0x231eff
     );
   }
 }
-
-//adds a single brick to array
-function AddSingleBrick(target, x, y, c, static) {
-  let template = brick;
-  if (static) {
-    template = staticbrick;
-  }
-  for (let i = 0; i < 8; i++) {
-    for (let j = 0; j < 8; j++) {
-      if (y - i < 0) {
-        continue;
-      }
-      let col = HSVtoRGB(c / 5, 0.8, map(template[i][j], 0, 1, 0.2, 0.7));
-      //[Block Group, r,g,b, visited, STATIC]
-      target[y - i][x + j] = [c, col.r, col.g, col.b, 0, static];
+function AddSingleBrick(_0x3d90a5, _0x5e5818, _0x5f352a, _0x599e88, _0x215c5e) {
+  let _0x1fb990 = brick;
+  _0x215c5e && (_0x1fb990 = staticbrick);
+  for (let _0x10c2e5 = 0x0; _0x10c2e5 < 0x8; _0x10c2e5++) {
+    for (let _0x24bba5 = 0x0; _0x24bba5 < 0x8; _0x24bba5++) {
+      if (_0x5f352a - _0x10c2e5 < 0x0) continue;
+      let _0x16a855 = HSVtoRGB(
+        _0x599e88 / 0x5,
+        0.8,
+        map(_0x1fb990[_0x10c2e5][_0x24bba5], 0x0, 0x1, 0.2, 0.7)
+      );
+      _0x3d90a5[_0x5f352a - _0x10c2e5][_0x5e5818 + _0x24bba5] = [
+        _0x599e88,
+        _0x16a855["r"],
+        _0x16a855["g"],
+        _0x16a855["b"],
+        0x0,
+        _0x215c5e,
+      ];
     }
   }
 }
-
-//renders image from given array
-function renderFromArray(a, target) {
-  let rows = a.length;
-  let columns = a[0].length;
-  target.loadPixels();
-  for (let y = 0; y < rows; y++) {
-    for (let x = 0; x < columns; x++) {
-      let index = (y * columns + x) * 4;
-      if (a[y][x] == null) {
-        target.pixels[index] = 0;
-        target.pixels[index + 1] = 0;
-        target.pixels[index + 2] = 0;
-        target.pixels[index + 3] = 0;
+function renderFromArray(_0x3d6e7c, _0x4d7281) {
+  var _0x4965e7 = _0x180e5b;
+  let _0x583f02 = _0x3d6e7c[_0x4965e7(0x20a)],
+    _0x1b4633 = _0x3d6e7c[0x0][_0x4965e7(0x20a)];
+  _0x4d7281["loadPixels"]();
+  for (let _0x42ded6 = 0x0; _0x42ded6 < _0x583f02; _0x42ded6++) {
+    for (let _0x2262be = 0x0; _0x2262be < _0x1b4633; _0x2262be++) {
+      let _0x8f4cc1 = (_0x42ded6 * _0x1b4633 + _0x2262be) * 0x4;
+      if (_0x3d6e7c[_0x42ded6][_0x2262be] == null) {
+        (_0x4d7281["pixels"][_0x8f4cc1] = 0x0),
+          (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1 + 0x1] = 0x0),
+          (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1 + 0x2] = 0x0),
+          (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1 + 0x3] = 0x0);
         continue;
       }
-
-      target.pixels[index] = a[y][x][1];
-      target.pixels[index + 1] = a[y][x][2];
-      target.pixels[index + 2] = a[y][x][3];
-      target.pixels[index + 3] = 255;
+      (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1] =
+        _0x3d6e7c[_0x42ded6][_0x2262be][0x1]),
+        (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1 + 0x1] =
+          _0x3d6e7c[_0x42ded6][_0x2262be][0x2]),
+        (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1 + 0x2] =
+          _0x3d6e7c[_0x42ded6][_0x2262be][0x3]),
+        (_0x4d7281[_0x4965e7(0x206)][_0x8f4cc1 + 0x3] = 0xff);
     }
   }
-  target.updatePixels();
+  _0x4d7281["updatePixels"]();
 }
-
-//resets and sand automata logic
-function updateLogic(x, y) {
-  if (grid[y][x] == null) {
+function updateLogic(_0x21c3ad, _0x240a98) {
+  if (grid[_0x240a98][_0x21c3ad] == null) return;
+  grid[_0x240a98][_0x21c3ad][0x4] = 0x0;
+  if (_0x240a98 >= rows - 0x1) return;
+  if (grid[_0x240a98 + 0x1][_0x21c3ad] == null) {
+    (grid[_0x240a98 + 0x1][_0x21c3ad] = grid[_0x240a98][_0x21c3ad]),
+      (grid[_0x240a98][_0x21c3ad] = null);
     return;
   }
-
-  //reset visited logic
-  grid[y][x][4] = 0;
-
-  //sand automata rules
-  if (y >= rows - 1) {
-    return;
-  }
-
-  //bottom empty
-  if (grid[y + 1][x] == null) {
-    grid[y + 1][x] = grid[y][x];
-    grid[y][x] = null;
-    return;
-  }
-
-  //check if static block
-  if (grid[y][x][5]) {
-    return;
-  }
-
-  //bottom corners
-  let bl = x > 0 && grid[y + 1][x - 1] == null;
-  let br = x < columns - 1 && grid[y + 1][x + 1] == null;
-  if (bl && br) {
+  if (grid[_0x240a98][_0x21c3ad][0x5]) return;
+  let _0x337a24 =
+      _0x21c3ad > 0x0 && grid[_0x240a98 + 0x1][_0x21c3ad - 0x1] == null,
+    _0x2373a4 =
+      _0x21c3ad < columns - 0x1 &&
+      grid[_0x240a98 + 0x1][_0x21c3ad + 0x1] == null;
+  if (_0x337a24 && _0x2373a4) {
     if (random() < 0.5) {
-      grid[y + 1][x - 1] = grid[y][x];
-      grid[y][x] = null;
+      (grid[_0x240a98 + 0x1][_0x21c3ad - 0x1] = grid[_0x240a98][_0x21c3ad]),
+        (grid[_0x240a98][_0x21c3ad] = null);
       return;
     }
-    grid[y + 1][x + 1] = grid[y][x];
-    grid[y][x] = null;
+    (grid[_0x240a98 + 0x1][_0x21c3ad + 0x1] = grid[_0x240a98][_0x21c3ad]),
+      (grid[_0x240a98][_0x21c3ad] = null);
     return;
   }
-
-  if (bl) {
-    grid[y + 1][x - 1] = grid[y][x];
-    grid[y][x] = null;
+  if (_0x337a24) {
+    (grid[_0x240a98 + 0x1][_0x21c3ad - 0x1] = grid[_0x240a98][_0x21c3ad]),
+      (grid[_0x240a98][_0x21c3ad] = null);
     return;
   }
-
-  if (br) {
-    grid[y + 1][x + 1] = grid[y][x];
-    grid[y][x] = null;
+  if (_0x2373a4) {
+    (grid[_0x240a98 + 0x1][_0x21c3ad + 0x1] = grid[_0x240a98][_0x21c3ad]),
+      (grid[_0x240a98][_0x21c3ad] = null);
     return;
   }
 }
-
-//alternates update loop l-r, r-l
 function updateGrid() {
-  if (t % 4 == 0) {
-    //left to right half the time
-    for (let y = rows - 1; y >= 0; y--) {
-      for (let x = 0; x < columns; x++) {
-        updateLogic(x, y);
+  if (t % 0x4 == 0x0) {
+    for (let _0x1fb672 = rows - 0x1; _0x1fb672 >= 0x0; _0x1fb672--) {
+      for (let _0x58dfb7 = 0x0; _0x58dfb7 < columns; _0x58dfb7++) {
+        updateLogic(_0x58dfb7, _0x1fb672);
       }
     }
     return;
   }
-  if (t % 4 == 2) {
-    //right to left half the time
-    for (let y = rows - 1; y >= 0; y--) {
-      for (let x = columns - 1; x >= 0; x--) {
-        updateLogic(x, y);
+  if (t % 0x4 == 0x2)
+    for (let _0x55b1f1 = rows - 0x1; _0x55b1f1 >= 0x0; _0x55b1f1--) {
+      for (let _0x1d8216 = columns - 0x1; _0x1d8216 >= 0x0; _0x1d8216--) {
+        updateLogic(_0x1d8216, _0x55b1f1);
       }
     }
-  }
 }
-
-//checks if color goes from left to right
 function checkLine() {
-  //visited array
   vis = [];
-
-  for (let y = 0; y < rows; y++) {
-    vis = [];
-    fullLine = false;
-    if (grid[y][0] == null || grid[y][0][4] == 1) {
+  for (let _0x4fd079 = 0x0; _0x4fd079 < rows; _0x4fd079++) {
+    (vis = []), (fullLine = ![]);
+    if (grid[_0x4fd079][0x0] == null || grid[_0x4fd079][0x0][0x4] == 0x1)
       continue;
-    }
-    floodFill(0, y, grid[y][0][0]);
-    if (!fullLine) {
-      continue;
-    }
-    console.log("LINE AT ", y);
-
-    //breaks here to store vis and fullLine
+    floodFill(0x0, _0x4fd079, grid[_0x4fd079][0x0][0x0]);
+    if (!fullLine) continue;
+    console["log"]("LINE\x20AT\x20", _0x4fd079);
     return;
   }
 }
-
-//helper for checkLine using floodFill
-function floodFill(x, y, c) {
+function floodFill(_0x35168a, _0x5a6455, _0x116a0c) {
+  var _0x2f881d = _0x180e5b;
   if (
-    x < 0 ||
-    x >= columns ||
-    y < 0 ||
-    y >= rows ||
-    grid[y][x] == null ||
-    grid[y][x][4] == 1 ||
-    grid[y][x][0] != c
-  ) {
+    _0x35168a < 0x0 ||
+    _0x35168a >= columns ||
+    _0x5a6455 < 0x0 ||
+    _0x5a6455 >= rows ||
+    grid[_0x5a6455][_0x35168a] == null ||
+    grid[_0x5a6455][_0x35168a][0x4] == 0x1 ||
+    grid[_0x5a6455][_0x35168a][0x0] != _0x116a0c
+  )
     return;
-  }
-
-  if (x == columns - 1) {
-    fullLine = true;
-  }
-  //mark visited
-  grid[y][x][4] = 1;
-  vis.push([x, y]);
-
-  //recurse to neighbors
-  floodFill(x + 1, y, c);
-  floodFill(x - 1, y, c);
-  floodFill(x, y + 1, c);
-  floodFill(x, y - 1, c);
+  _0x35168a == columns - 0x1 && (fullLine = !![]),
+    (grid[_0x5a6455][_0x35168a][0x4] = 0x1),
+    vis[_0x2f881d(0x1f5)]([_0x35168a, _0x5a6455]),
+    floodFill(_0x35168a + 0x1, _0x5a6455, _0x116a0c),
+    floodFill(_0x35168a - 0x1, _0x5a6455, _0x116a0c),
+    floodFill(_0x35168a, _0x5a6455 + 0x1, _0x116a0c),
+    floodFill(_0x35168a, _0x5a6455 - 0x1, _0x116a0c);
 }
-
-function setLineColor(t) {
-  let col = 255;
-  if (t % 10 < 5) {
-    col = 0;
-  }
-  for (let p of vis) {
-    grid[p[1]][p[0]][1] = col;
-    grid[p[1]][p[0]][2] = col;
-    grid[p[1]][p[0]][3] = col;
+function setLineColor(_0x2951db) {
+  let _0x449386 = 0xff;
+  _0x2951db % 0xa < 0x5 && (_0x449386 = 0x0);
+  for (let _0x2e6742 of vis) {
+    (grid[_0x2e6742[0x1]][_0x2e6742[0x0]][0x1] = _0x449386),
+      (grid[_0x2e6742[0x1]][_0x2e6742[0x0]][0x2] = _0x449386),
+      (grid[_0x2e6742[0x1]][_0x2e6742[0x0]][0x3] = _0x449386);
   }
 }
-
-function deleteLine(p) {
-  for (let p of vis) {
-    grid[p[1]][p[0]] = null;
+function deleteLine(_0x43ee26) {
+  var _0x48d888 = _0x180e5b;
+  for (let _0x594342 of vis) {
+    grid[_0x594342[0x1]][_0x594342[0x0]] = null;
   }
-  score += vis.length;
-  vis = [];
+  (score += vis[_0x48d888(0x20a)]), (vis = []);
 }
-
+function _0x2aca() {
+  var _0x174c98 = [
+    "value",
+    "newBlock",
+    "sprite",
+    "innerHTML",
+    "log",
+    "repeat",
+    "grid",
+    "62721qOhpMF",
+    "244QBhMGh",
+    "round",
+    "Share\x20Text\x20Copied\x20to\x20Clipboard!",
+    "startpage",
+    "LINES:",
+    "sfx1Slider",
+    "mus2Slider",
+    "SCORE:<br/>",
+    "clipboard",
+    "ogg",
+    "fonts/retroFont.ttf",
+    "6429318xMmrCc",
+    "gameoverpage",
+    "2010642qhegzc",
+    "renderBlock",
+    "TIME:\x20",
+    "play",
+    "aboutpage",
+    "sounds/place",
+    "9136470gjLRcg",
+    "21QqIAHI",
+    "sounds/line",
+    "█▀\u2003▄▀█\u2003█▄░█\u2003█▀▄\u2003▀█▀\u2003█▀█\u2003█\u2003█▀\x0a▄█\u2003█▀█\u2003█░▀█\u2003█▄▀\u2003░█░\u2003█▀▄\u2003█\u2003▄█\x0a\x20\x20",
+    "Deleting",
+    "clearGrid",
+    "LEVEL:",
+    "rotate",
+    "rotReset",
+    "toString",
+    "loop",
+    "fill",
+    "levelText",
+    "push",
+    "update",
+    "Play\x20now\x20at\x20https://sandtris.com/",
+    "6120640SUdySF",
+    "gameoverText",
+    "parent",
+    "rot",
+    "2776LmAtxn",
+    "1kHxlzz",
+    "type",
+    "floor",
+    "00:00",
+    "mus1Slider",
+    "sfx2Slider",
+    "open",
+    "show",
+    "setVolume",
+    "pixels",
+    "mp3",
+    "getElementById",
+    "1866249ynsAWI",
+    "length",
+    "col",
+    "SCORE:",
+    "lvlSlider",
+    "grav",
+    "pos",
+    "static",
+  ];
+  _0x2aca = function () {
+    return _0x174c98;
+  };
+  return _0x2aca();
+}
 function UI() {
-  //render
-  renderFromArray(grid, buff);
-
-  //display
-  background(206, 174, 127);
-  //game background
-  fill(10);
-  rect(gameOffset, 0, columns * scl, rows * scl);
-  //game image
-  image(buff, gameOffset, 0, columns * scl, rows * scl);
-
-  //current block show
-  if (!gameOver && !placed) {
-    playerBlock.show();
-  }
-
-  //next block background
-  fill(10);
-  rect(nextOffset, gameOffset * 2, gameOffset * 10, gameOffset * 10);
-  //next block show
-  image(
-    nextBlock.sprite,
-    nextOffset + (5 - (blockWidth[nextBlock.type][0] + 1)) * gameOffset,
-    (5 - (6 - blockHeight[nextBlock.type][0]) + 1) * gameOffset,
-    32 * scl,
-    32 * scl
-  );
-
-  //show text
-  let minutes = Math.floor(t / 3600);
-  let seconds = Math.floor(t / 60) % 60;
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
-
-  timeText = minutes + ":" + seconds;
-  fill(25).strokeWeight(1).textSize(32);
-  text(timeText, nextOffset - 2, gameOffset * 16);
-  text("LINES:", nextOffset - 2, gameOffset * 19);
-  text(linesCleared, nextOffset - 2, gameOffset * 21);
-  text("SCORE:", nextOffset - 2, gameOffset * 24);
-  text(score, nextOffset - 2, gameOffset * 26);
-  text("LEVEL:", nextOffset - 2, gameOffset * 29);
-  text(difficulty, nextOffset - 2, gameOffset * 31);
-
-  //DOM
-  levelText.innerHTML = "LEVEL: " + levelSlider.value;
+  var _0x286d3a = _0x180e5b;
+  renderFromArray(grid, buff),
+    background(0xce, 0xae, 0x7f),
+    fill(0xa),
+    rect(gameOffset, 0x0, columns * scl, rows * scl),
+    image(buff, gameOffset, 0x0, columns * scl, rows * scl);
+  !gameOver && !placed && playerBlock[_0x286d3a(0x204)]();
+  fill(0xa),
+    rect(nextOffset, gameOffset * 0x2, gameOffset * 0xa, gameOffset * 0xa),
+    image(
+      nextBlock[_0x286d3a(0x213)],
+      nextOffset +
+        (0x5 - (blockWidth[nextBlock[_0x286d3a(0x1fe)]][0x0] + 0x1)) *
+          gameOffset,
+      (0x5 - (0x6 - blockHeight[nextBlock["type"]][0x0]) + 0x1) * gameOffset,
+      0x20 * scl,
+      0x20 * scl
+    );
+  let _0x2fe130 = Math["floor"](t / 0xe10),
+    _0x49da38 = Math[_0x286d3a(0x1ff)](t / 0x3c) % 0x3c;
+  _0x2fe130 < 0xa && (_0x2fe130 = "0" + _0x2fe130),
+    _0x49da38 < 0xa && (_0x49da38 = "0" + _0x49da38),
+    (timeText = _0x2fe130 + ":" + _0x49da38),
+    fill(0x19)["strokeWeight"](0x1)["textSize"](0x20),
+    text(timeText, nextOffset - 0x2, gameOffset * 0x10),
+    text(_0x286d3a(0x21d), nextOffset - 0x2, gameOffset * 0x13),
+    text(linesCleared, nextOffset - 0x2, gameOffset * 0x15),
+    text(_0x286d3a(0x20c), nextOffset - 0x2, gameOffset * 0x18),
+    text(score, nextOffset - 0x2, gameOffset * 0x1a),
+    text(_0x286d3a(0x1ee), nextOffset - 0x2, gameOffset * 0x1d),
+    text(difficulty, nextOffset - 0x2, gameOffset * 0x1f),
+    (levelText[_0x286d3a(0x214)] = "LEVEL:\x20" + levelSlider["value"]);
 }
-
 function keyPressed() {
-  if (keyCode === 80) {
-    if (gameOver) {
-      return;
-    }
-    paused = !paused;
-    pauseScreen.open = !pauseScreen.open;
+  var _0x48c0e5 = _0x180e5b;
+  if (keyCode === 0x50) {
+    if (gameOver) return;
+    (paused = !paused),
+      (pauseScreen[_0x48c0e5(0x203)] = !pauseScreen[_0x48c0e5(0x203)]);
   }
 }
-
 function GameLogic() {
-  if (paused) {
-    return;
-  }
-  if (gameOver) {
-    return;
-  }
-
-  //check if line is made
+  var _0x1bc525 = _0x180e5b;
+  if (paused) return;
+  if (gameOver) return;
   if (fullLine) {
-    if (cleartime == 0) {
-      linesCleared += 1;
-      lineSound.play();
-    }
-    cleartime += 1;
-    setLineColor(cleartime);
-    if (cleartime > 30) {
-      console.log("Deleting");
-      deleteLine();
-      cleartime = 0;
-      fullLine = false;
-    }
+    cleartime == 0x0 && ((linesCleared += 0x1), lineSound[_0x1bc525(0x1e5)]());
+    (cleartime += 0x1), setLineColor(cleartime);
+    cleartime > 0x1e &&
+      (console[_0x1bc525(0x215)](_0x1bc525(0x1ec)),
+      deleteLine(),
+      (cleartime = 0x0),
+      (fullLine = ![]));
     return;
   }
-
-  if (placed) {
-    playerBlock = nextBlock;
-    nextBlock = new Block(width / 2, 0);
-    nextBlock.newBlock();
-
-    if (playerBlock.col == nextBlock.col) {
-      if (random() < dupChance) {
-        nextBlock.col = (nextBlock.col + 1) % 4;
-        nextBlock.renderBlock();
-      }
-    }
-
-    placed = false;
-  }
-
-  //game logic
-  updateGrid();
-  playerBlock.update();
-  playerBlock.controls();
-
-  checkLine();
-
-  t += 1;
+  placed &&
+    ((playerBlock = nextBlock),
+    (nextBlock = new Block(width / 0x2, 0x0)),
+    nextBlock[_0x1bc525(0x212)](),
+    playerBlock[_0x1bc525(0x20b)] == nextBlock["col"] &&
+      random() < dupChance &&
+      ((nextBlock[_0x1bc525(0x20b)] =
+        (nextBlock[_0x1bc525(0x20b)] + 0x1) % 0x4),
+      nextBlock[_0x1bc525(0x1e3)]()),
+    (placed = ![])),
+    updateGrid(),
+    playerBlock[_0x1bc525(0x1f6)](),
+    playerBlock["controls"](),
+    checkLine(),
+    (t += 0x1);
 }
-
 function draw() {
-  //show game
-  UI();
-  //run game logic
-  GameLogic();
+  UI(), GameLogic();
 }
