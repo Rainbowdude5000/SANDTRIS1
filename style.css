@@ -1,20 +1,49 @@
-
-
-
-
-
-
-
 @font-face {
   font-family: "pixelFont";
   src: url("fonts/retroFont.ttf");
+}
+
+:root {
+  --primary-bg-color: #0c0c0c; /* Dark background */
+  --secondary-bg-color: #202020; /* Slightly lighter background */
+  --text-color: #e6e6e6; /* White text */
+
+  --neon-green: hsl(102, 90%, 40%);
+  --neon-blue: hsl(196, 90%, 50%);
+  --neon-pink: hsl(340, 90%, 50%);
+  --neon-yellow: hsl(50, 90%, 50%);
+
+  --desert-sand: rgb(210, 180, 140);
+  --desert-brown: rgb(67, 59, 50);
+  --desert-browndark: rgb(24, 21, 17);
+  --desert-orange: rgb(255, 119, 45);
+  --desert-red: rgb(255, 0, 0);
+}
+
+a:link {
+  color: var(--text-color);
+}
+
+/* visited link */
+a:visited {
+  color: var(--text-color);
+}
+
+/* mouse over link */
+a:hover {
+  color: var(--text-color);
+}
+
+/* selected link */
+a:active {
+  color: var(--text-color);
 }
 
 html, body {
   font-family: "pixelFont";
   margin: 0;
   padding: 0;
-  color: rgb(206, 174, 127);
+  color: var(--desert-sand);
   background-color: black;
 }
 canvas {
@@ -23,12 +52,12 @@ canvas {
 
 h1{
   font-size: 36px;
-  text-shadow: 0px 3px rgb(73, 62, 46);
+  text-shadow: 0px 4px rgb(73, 62, 46);
 }
 
 #cnv{
   position: absolute;
-  background-color: rgb(206, 174, 127);
+  background-color: var(--desert-brown);
   width: 590px;
   height: 640px;
 
@@ -38,37 +67,41 @@ h1{
   z-index: 0;
 
   padding: 10px;
-  box-shadow: 0px 16px rgb(73, 62, 46);
+  box-shadow: 0px 16px var(--desert-browndark);
+}
+.cnv.blur{
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+
+.box{
+  width: 590px;
+  height: 450px;
+  position: absolute;
+  top:50%;
+  transform: translate(0%,-50%);
+  
 }
 
 .page{
+  width: 590px;
+  height: 640px;
+  padding: 10px;
+  color: var(--text-color);
   font-size: 24px;
   position: absolute;
-  width: 304px;
-  height: 304px;
-  padding:0%;
   top:50%;
   transform: translate(0,-50%);
   z-index: 2;
   border: none;
-  background-color: rgb(165, 150, 127);
-  
-  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.2);
-
-  
+  background-color: rgba(67, 59, 50,0.95);
+  box-shadow: 0px 16px var(--desert-browndark);
 }
 
-#startpage{
-  height: 500px;
-}
-
-#pausepage{
-  height: 400px;
-}
-
-#aboutpage{
-  height: 630px;
-}
 
 #aboutpage p{
   font-size: 16px;
@@ -76,16 +109,13 @@ h1{
   margin-top: 4px;
 }
 
-#gameoverpage{
-  height: 400px;
-}
-
 button{
   cursor:pointer;
   font-size: 24px;
   border: none;
   font-family: "pixelFont";
-  background-color: rgb(76, 189, 54);
+  color: var(--text-color);
+  background-color: var(--neon-green);
   padding:16px;
   box-shadow: 0px 16px rgb(16, 53, 18);
 }
@@ -165,20 +195,6 @@ button:active{
   box-shadow: 0px 0px rgb(16, 38, 53);
 }
 
-.box{
-  
-  width:100%;
-  /* Firefox */
-  height: -moz-calc(100% - 16px);
-  /* WebKit */
-  height: -webkit-calc(100% - 16px);
-  /* Opera */
-  height: -o-calc(100% - 16px);
-  /* Standard */
-  height: calc(100% - 16px);
-  box-shadow: 0px 16px rgb(65, 61, 57);
-  
-}
 
 .slider {
   -webkit-appearance: none;
