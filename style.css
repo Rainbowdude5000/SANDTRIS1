@@ -58,16 +58,20 @@ h1{
 #main2{
   position: absolute;
   z-index: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 200px) auto minmax(0, 200px);
-  grid-gap: 20px;
   height:660px;
   width: 1100px;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  border: 1px;
 }
 
+.ads2{
+  width: 200px;
+  height: 640px;
+
+  padding: 10px;
+}
 
 #cnv{
   
