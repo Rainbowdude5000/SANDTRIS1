@@ -68,6 +68,8 @@ h1{
 }
 
 .ads2{
+  display: table-cell;
+  vertical-align: middle;
   width: 200px;
   height: 640px;
   padding:10px;
