@@ -59,7 +59,7 @@ h1{
   position: absolute;
   z-index: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 200px) auto minmax(0, 200px);
   grid-gap: 20px;
   height:660px;
   width: 1100px;
@@ -68,12 +68,6 @@ h1{
   transform: translate(-50%,-50%);
 }
 
-.ads2{
-  width: 200px;
-  height: 640px;
-
-  padding: 10px;
-}
 
 #cnv{
   
