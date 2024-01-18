@@ -70,6 +70,8 @@ h1{
 .ads2{
   width: 200px;
   height: 640px;
+  padding:10px;
+  background-color: var(--secondary-bg-color);
 }
 
 #cnv{
